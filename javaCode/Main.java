@@ -28,6 +28,18 @@ class Main {
         System.out.println("Flat Map List: " + flatMapList);
     }
 
+    public static void evenNumbers(List<Integer> nums) {
+        List<Integer> evenNums = nums.stream().filter(num -> num % 2 == 0).collect(Collectors.toList());
+
+        System.out.println("Even Numbers: " + evenNums);
+    }
+
+    public static void parallelStreamSum(List<Integer> nums) {
+        int sum = nums.parallelStream().mapToInt(Integer::intValue).sum();
+
+        System.out.println("Sum of Numbers: " + sum);
+    }
+
     public static void main(String[] args) {
 
         List<Integer> numList = Arrays.asList(1, 2, 3, 4, 5, 4, 5, 6);
@@ -43,7 +55,13 @@ class Main {
                 Arrays.asList("4", "5", "6"),
                 Arrays.asList("7", "8", "9"));
 
-        flatMapList(numList2);
+        // flatMapList(numList2);
+
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
+
+        // evenNumbers(numbers);
+
+        // parallelStreamSum(numbers);
 
     }
 }
